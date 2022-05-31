@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Button from '@components/button';
-import Input from '@components/input';
-import useMutation from '@libs/client/useMutation';
-import { cls } from '@libs/client/utils';
+import type { NextPage } from "next";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import Button from "@components/button";
+import Input from "@components/input";
+import useMutation from "@libs/client/useMutation";
+import { cls } from "@libs/client/utils";
 
 interface EnterForm {
   email?: string;
@@ -12,20 +12,20 @@ interface EnterForm {
 }
 
 const Enter: NextPage = () => {
-  const [enter, { loading, data, error }] = useMutation('/api/users/enter');
-  const [submitting, setSubmitting] = useState(false);
+  const [enter, { loading, data, error }] = useMutation("/api/users/enter");
   const { register, handleSubmit, reset } = useForm<EnterForm>();
-  const [method, setMethod] = useState<'email' | 'phone'>('email');
+  const [method, setMethod] = useState<"email" | "phone">("email");
   const onEmailClick = () => {
     reset();
-    setMethod('email');
+    setMethod("email");
   };
   const onPhoneClick = () => {
     reset();
-    setMethod('phone');
+    setMethod("phone");
   };
-  const onValid = (data: EnterForm) => {
-    enter(data);
+  const onValid = (validForm: EnterForm) => {
+    if (loading) return;
+    enter(validForm);
   };
   return (
     <div className="mt-16 px-4">
@@ -36,10 +36,10 @@ const Enter: NextPage = () => {
           <div className="grid border-b  w-full mt-8 grid-cols-2 ">
             <button
               className={cls(
-                'pb-4 font-medium text-sm border-b-2',
-                method === 'email'
-                  ? ' border-orange-500 text-orange-400'
-                  : 'border-transparent hover:text-gray-400 text-gray-500'
+                "pb-4 font-medium text-sm border-b-2",
+                method === "email"
+                  ? " border-orange-500 text-orange-400"
+                  : "border-transparent hover:text-gray-400 text-gray-500"
               )}
               onClick={onEmailClick}
             >
@@ -47,10 +47,10 @@ const Enter: NextPage = () => {
             </button>
             <button
               className={cls(
-                'pb-4 font-medium text-sm border-b-2',
-                method === 'phone'
-                  ? ' border-orange-500 text-orange-400'
-                  : 'border-transparent hover:text-gray-400 text-gray-500'
+                "pb-4 font-medium text-sm border-b-2",
+                method === "phone"
+                  ? " border-orange-500 text-orange-400"
+                  : "border-transparent hover:text-gray-400 text-gray-500"
               )}
               onClick={onPhoneClick}
             >
@@ -62,9 +62,9 @@ const Enter: NextPage = () => {
           onSubmit={handleSubmit(onValid)}
           className="flex flex-col mt-8 space-y-4"
         >
-          {method === 'email' ? (
+          {method === "email" ? (
             <Input
-              register={register('email', {
+              register={register("email", {
                 required: true,
               })}
               name="email"
@@ -73,9 +73,9 @@ const Enter: NextPage = () => {
               required
             />
           ) : null}
-          {method === 'phone' ? (
+          {method === "phone" ? (
             <Input
-              register={register('phone')}
+              register={register("phone")}
               name="phone"
               label="Phone number"
               type="number"
@@ -83,9 +83,11 @@ const Enter: NextPage = () => {
               required
             />
           ) : null}
-          {method === 'email' ? <Button text={'Get login link'} /> : null}
-          {method === 'phone' ? (
-            <Button text={submitting ? 'Loading' : 'Get one-time password'} />
+          {method === "email" ? (
+            <Button text={loading ? "Loading" : "Get login link"} />
+          ) : null}
+          {method === "phone" ? (
+            <Button text={loading ? "Loading" : "Get one-time password"} />
           ) : null}
         </form>
 
