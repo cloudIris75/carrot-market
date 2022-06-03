@@ -1,11 +1,17 @@
-import type { NextPage } from "next";
-import FloatingButton from "@components/floating-button";
-import Item from "@components/item";
-import Layout from "@components/layout";
+import type { NextPage } from 'next';
+import FloatingButton from '@components/floating-button';
+import Item from '@components/item';
+import Layout from '@components/layout';
+import useUser from '@libs/client/useUser';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
+  const { user, isLoading } = useUser();
   return (
     <Layout title="홈" hasTabBar>
+      <Head>
+        <title>Home</title>
+      </Head>
       <div className="flex flex-col space-y-5 divide-y">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <Item
@@ -17,7 +23,7 @@ const Home: NextPage = () => {
             hearts={1}
           />
         ))}
-        <FloatingButton href="/items/upload">
+        <FloatingButton href="/products/upload">
           <svg
             className="h-6 w-6"
             xmlns="http://www.w3.org/2000/svg"
