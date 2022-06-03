@@ -12,7 +12,7 @@ async function handler(
   res: NextApiResponse<ResponseType>
 ) {
   const { phone, email } = req.body;
-  const user = phone ? { phone: +phone } : email ? { email } : null;
+  const user = phone ? { phone } : email ? { email } : null;
   if (!user) return res.status(400).json({ ok: false });
   const payload = Math.floor(100000 + Math.random() * 900000) + '';
   const token = await client.token.create({
@@ -32,25 +32,25 @@ async function handler(
     },
   });
   if (phone) {
-    // const message = await twilioClient.messages.create({
-    //   messagingServiceSid: process.env.TWILIO_MSID,
-    //   to: process.env.MY_PHONE!,
-    //   body: `Your login token is ${payload}`,
-    // });
-    // console.log(message);
+    /*  const message = await twilioClient.messages.create({
+      messagingServiceSid: process.env.TWILIO_MSID,
+      to: process.env.MY_PHONE!,
+      body: `Your login token is ${payload}.`,
+    });
+    console.log(message); */
   } else if (email) {
-    // const email = await mail.send({
-    //   from: 'gmyeom1230@gmail.com',
-    //   to: 'gmyeom1230@gmail.com',
-    //   subject: 'Your Carrot Market Verification Email',
-    //   text: `Your token is ${payload}`,
-    //   html: `<strong>Your token is ${payload}</strong>`,
-    // });
-    // console.log(email);
+    /* const email = await mail.send({
+      from: "nico@nomadcoders.co",
+      to: "nico@nomadcoders.co",
+      subject: "Your Carrot Market Verification Email",
+      text: `Your token is ${payload}`,
+      html: `<strong>Your token is ${payload}</strong>`,
+    });
+    console.log(email); */
   }
   return res.json({
     ok: true,
   });
 }
 
-export default withHandler({ method: 'POST', handler, isPrivate: false });
+export default withHandler({ methods: ['POST'], handler, isPrivate: false });
