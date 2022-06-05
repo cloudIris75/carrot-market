@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import withHandler, { ResponseType } from '@libs/server/withHandler';
 import client from '@libs/server/client';
-import { withApiSession } from '@libs/client/withSession';
+import { withApiSession } from '@libs/server/withSession';
 
 async function handler(
   req: NextApiRequest,
@@ -15,7 +15,7 @@ async function handler(
     const stream = await client.stream.create({
       data: {
         name,
-        price,
+        price: +price.toString(),
         description,
         user: {
           connect: {

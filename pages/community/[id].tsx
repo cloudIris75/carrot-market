@@ -48,7 +48,7 @@ const CommunityPostDetail: NextPage = () => {
     `/api/posts/${router.query.id}/wonder`
   );
   const [sendAnswer, { data: answerData, loading: answerLoading }] =
-    useMutation(`/api/posts/${router.query.id}/answers`);
+    useMutation<AnswerResponse>(`/api/posts/${router.query.id}/answers`);
   const onWonderClick = () => {
     if (!data) return;
     mutate(
@@ -110,7 +110,7 @@ const CommunityPostDetail: NextPage = () => {
               onClick={onWonderClick}
               className={cls(
                 'flex space-x-2 items-center text-sm',
-                data?.isWondering ? 'text-teal-400' : ''
+                data?.isWondering ? 'text-teal-600' : ''
               )}
             >
               <svg
@@ -159,7 +159,7 @@ const CommunityPostDetail: NextPage = () => {
                 <span className="text-xs text-gray-500 block ">
                   {answer.createdAt}
                 </span>
-                <p className="text-gray-700 mt-2">{answer.answer}</p>
+                <p className="text-gray-700 mt-2">{answer.answer} </p>
               </div>
             </div>
           ))}
