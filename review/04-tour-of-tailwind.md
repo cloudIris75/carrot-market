@@ -1,6 +1,6 @@
 # 04 Tour of Tailwind
 
-> ## className function
+## className function
 
 ```tsx
 // libs/client/utils.ts
