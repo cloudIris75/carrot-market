@@ -1,6 +1,6 @@
 # 06 Database Setup
 
-> ## Prisma
+## Prisma
 
 1. Install and run _Prisma_.
 
@@ -72,6 +72,4 @@ npx prisma db push
 npx prisma studio
 ```
 
----
-
-> ## Serverless
+## Serverless
