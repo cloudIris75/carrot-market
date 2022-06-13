@@ -1,6 +1,6 @@
 # 08 Refactoring
 
-> ## Paths
+## Paths
 
 ```tsx
 // tsconfig.json
