@@ -17,8 +17,8 @@ TypeScript, Serverless, Next.js, Prisma, Tailwind CSS, Vercel
 03 Setup  
 [04 Tour of Tailwind](/review/04-tour-of-tailwind.md)  
 05 Tailwind Practice  
-[06 Database Setup](/review/06-database%20setup.md)  
-07 React Hook Form  
+[06 Database Setup](/review/06-database-setup.md)  
+[07 React Hook Form](/review/07-react-hook-form.md)  
 [08 Refactoring](/review/08-refactoring.md)  
 09 Authentication  
 10 Authorization  
