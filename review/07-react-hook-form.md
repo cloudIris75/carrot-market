@@ -35,7 +35,6 @@ const Login: NextPage = () => {
   } = useForm<LoginForm>({ mode: 'onBlur' });
   const onValid = (data: LoginForm) => {
     console.log(watch());
-    console.log('success :)!');
   };
   const onInvalid = (errors: FieldErrors) => {
     console.log(errors);
