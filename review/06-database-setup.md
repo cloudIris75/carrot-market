@@ -60,16 +60,20 @@ model Token {
 }
 ```
 
-4. Run prisma db push.
+4. Run _prisma db pull_.
 
 ```
-npx prisma db push
+npx prisma db pull
 ```
 
-5. Run _Prisma Studio_.
+5. Run _prisma generate_.
+
+```
+npx prisma generate
+```
+
+6. Run _Prisma Studio_.
 
 ```
 npx prisma studio
 ```
-
-## Serverless
