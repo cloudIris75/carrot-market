@@ -68,4 +68,4 @@ const Login: NextPage = () => {
 export default Login;
 ```
 
-##### [useForm | React Hook Form - Simple React forms validation](https://react-hook-form.com/api/useform)
+[useForm | React Hook Form - Simple React forms validation](https://react-hook-form.com/api/useform)
