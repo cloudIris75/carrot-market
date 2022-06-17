@@ -20,9 +20,9 @@ TypeScript, Serverless, Next.js, Prisma, Tailwind CSS, Vercel
 [06 Database Setup](/review/06-database-setup.md)  
 [07 React Hook Form](/review/07-react-hook-form.md)  
 [08 Refactoring](/review/08-refactoring.md)  
-09 Authentication  
-10 Authorization  
-11 Products  
+[09 Authentication](/review/09-authentication.md)  
+[10 Authorization](/review/10-authorization.md)  
+[11 Products](/review/11-products.md)  
 12 동네생활  
 13 Profile  
 14 Streams  
