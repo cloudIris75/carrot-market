@@ -36,5 +36,3 @@ TypeScript, Serverless, Next.js, Prisma, Tailwind CSS, Vercel
 ## Reference
 
 [[풀스택] 캐럿마켓 클론코딩 - 노마드 코더 Nomad Coders](https://nomadcoders.co/carrot-market/lobby)
-
-수정
